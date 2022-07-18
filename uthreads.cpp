@@ -10,11 +10,11 @@
 #include "EnvHelpers.h"
 using namespace std;
 
-// Macros:
+// ========== Macros =========== //
 #define BACKED 1
 #define MAIN_TID 0
 
-//Global Variables:
+// ============ Global Variables ============ //
 std::map<int, UThread *> threads;
 deque<int> ready_threads;
 unordered_set<int> blocked_threads;
@@ -25,7 +25,7 @@ int available_tid;
 int num_of_threads;
 sigset_t masked_signals;
 
-//Utils (inner functions):
+// ============= Utils (inner functions) ============= //
 
 static void update_available_tid(){
   int i = 1;
@@ -135,7 +135,7 @@ static void sigvtalrm_handler(int sig_num){
 	}
 }
 
-//API
+// =========== API ============ //
 int uthread_init(int quantum_usecs){
   // Sanity check:
   if (quantum_usecs <= 0){
